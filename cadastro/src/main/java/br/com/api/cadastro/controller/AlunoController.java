@@ -36,7 +36,7 @@ public class AlunoController {
 			return aluno;
 		}
 		
-		@DeleteMapping("/deletar-aluno")
+		@DeleteMapping("/deletar")
 		public Aluno deletarAluno() {
 			
 			Aluno aluno = new Aluno();
@@ -48,7 +48,7 @@ public class AlunoController {
 			return aluno;
 		}
 		
-		@PostMapping("/cadastrar-alunos")
+		@PostMapping("/cadastrar")
 		public Aluno cadastrarAlunos() {
 			
 			Aluno aluno = new Aluno();

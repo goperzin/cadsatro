@@ -21,7 +21,7 @@ public class FuncionarioController {
 		return jose;
 	}
 	
-	@GetMapping("/listar-funcionario")
+	@GetMapping("/listar")
 	public Funcionario listarFuncionario() {
 		
 		Funcionario jose = new Funcionario();
@@ -32,7 +32,7 @@ public class FuncionarioController {
 		return jose;
 	}
 	
-	@GetMapping("/cadastrar-funcionario")
+	@GetMapping("/cadastrar")
 	public Funcionario cadastrarFuncionario() {
 		
 		Funcionario jose = new Funcionario();
@@ -43,7 +43,7 @@ public class FuncionarioController {
 		return jose;
 	}
 	
-	@GetMapping("/deletar-funcionario")
+	@GetMapping("/deletar")
 	public Funcionario deletarFuncionario() {
 		
 		Funcionario jose = new Funcionario();
