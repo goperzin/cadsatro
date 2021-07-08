@@ -53,6 +53,4 @@ public class FuncionarioController {
 		
 		return jose;
 	}
-	
 }
-

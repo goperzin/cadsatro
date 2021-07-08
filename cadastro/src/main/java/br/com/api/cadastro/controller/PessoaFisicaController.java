@@ -10,7 +10,7 @@ import br.com.api.cadastro.modelo.Aluno;
 
 @RestController
 @RequestMapping("/aluno")
-public class AlunoController {
+public class PessoaFisicaController {
 
 		@GetMapping("/listar-alunos")
 		public Aluno listarAlunos() {
@@ -49,7 +49,6 @@ public class AlunoController {
 		public Aluno cadastrarAlunos() {
 			
 			Aluno aluno = new Aluno();
-			
 			aluno.setId(1L);
 			aluno.setNome("fabio");
 			aluno.setSobrenome("Brandão");

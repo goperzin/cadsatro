@@ -1,6 +1,7 @@
 package br.com.api.cadastro.modelo;
 
 public class Aluno {
+	
 	private Long id;
 	private String nome;
 	private String sobrenome;
@@ -23,6 +24,4 @@ public class Aluno {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	
-	
 }

@@ -23,8 +23,4 @@ public class Funcionario {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	
-
 }
-
-
