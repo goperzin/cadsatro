@@ -1,7 +1,11 @@
 package br.com.api.cadastro.dto;
 
-public class PessoaDTO {
+import java.io.Serializable;
 
+public class PessoaDTO implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private Long idPessoa;
 	
 	private String nome;
@@ -11,7 +15,15 @@ public class PessoaDTO {
 	private String telefone;
 	
 	private String email;
-
+	
+	private String cpf;
+	
+	private String apelido;
+	
+	private String cnpj;
+	
+	private String nomeFantasia;
+	
 	public Long getIdPessoa() {
 		return idPessoa;
 	}
@@ -19,7 +31,7 @@ public class PessoaDTO {
 	public void setIdPessoa(Long idPessoa) {
 		this.idPessoa = idPessoa;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -51,4 +63,37 @@ public class PessoaDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getApelido() {
+		return apelido;
+	}
+
+	public void setApelido(String apelido) {
+		this.apelido = apelido;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+	
 }

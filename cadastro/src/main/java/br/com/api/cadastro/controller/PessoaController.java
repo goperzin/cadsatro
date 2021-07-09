@@ -17,27 +17,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.api.cadastro.dto.PessoaDTO;
 import br.com.api.cadastro.modelo.Pessoa;
-import br.com.api.cadastro.modelo.PessoaFisica;
 import br.com.api.cadastro.repository.PessoaRepository;
 
 @RestController
-@RequestMapping("pessoa-fisica")
-public class PessoaFisicaController {
+@RequestMapping("pessoa")
+public class PessoaController {
 	
 	@Autowired
-	PessoaRepository PessoaRepository;
+	PessoaRepository pessoaRepository;
 	
 	@PostMapping()
-	public ResponseEntity<Pessoa> cadastrar(@RequestBody Pessoa pessoaDto, UriComponentsBuilder uriBuilder) {
-		PessoaFisica pessoa = new PessoaFisica();
+	public ResponseEntity<Pessoa> cadastrar(@RequestBody PessoaDTO pessoaDto, UriComponentsBuilder uriBuilder) {
+		Pessoa pessoa = new Pessoa();
 		
 		pessoa.setNome(pessoaDto.getNome());
 		pessoa.setCelular(pessoaDto.getCelular());
 		pessoa.setTelefone(pessoaDto.getTelefone());
 		pessoa.setEmail(pessoaDto.getEmail());
 		
-		Pessoa pessoaSalva = PessoaRepository.save(pessoa);
+		Pessoa pessoaSalva = pessoaRepository.save(pessoa);
 		
 		URI uri = uriBuilder.path("/cadastrar/{idPessoa}").buildAndExpand(pessoa.getIdPessoa()).toUri();
 		
@@ -46,30 +46,34 @@ public class PessoaFisicaController {
 	
 	@GetMapping()
 	public List<Pessoa> listarTodos() {
-		return PessoaRepository.findAll();
+		return pessoaRepository.findAll();
 	}
 	
 	@GetMapping("/{idPessoa}")
 	public Pessoa listarPorId(@PathVariable Long idPessoa) {
-		return PessoaRepository.getById(idPessoa);
+		return pessoaRepository.getById(idPessoa);
 	}
 	
 	@PutMapping("/{idPessoa}")
 	@Transactional
-	public ResponseEntity<Pessoa> alterar(@PathVariable Long idPessoa, @RequestBody Pessoa pessoaDto) {
-		Pessoa pessoa = PessoaRepository.getById(idPessoa);
+	public ResponseEntity<Pessoa> alterar(@PathVariable Long idPessoa, @RequestBody PessoaDTO pessoaDto) {
+		Pessoa pessoa = pessoaRepository.getById(idPessoa);
 		
 		pessoa.setNome(pessoaDto.getNome());
 		pessoa.setCelular(pessoaDto.getCelular());
 		pessoa.setTelefone(pessoaDto.getTelefone());
 		pessoa.setEmail(pessoaDto.getEmail());
+		pessoa.setCpf(pessoaDto.getCpf());
+		pessoa.setCnpj(pessoaDto.getCnpj());
+		pessoa.setApelido(pessoaDto.getApelido());
+		pessoa.setNomeFantasia(pessoaDto.getEmail());
 		
 		return ResponseEntity.ok(pessoa);
 	}
 	
 	@DeleteMapping("/{idPessoa}")
-	public ResponseEntity<?> remover(@PathVariable Long idPessoa) {
-		PessoaRepository.deleteById(idPessoa);
+	public ResponseEntity<Pessoa> remover(@PathVariable Long idPessoa) {
+		pessoaRepository.deleteById(idPessoa);
 		return ResponseEntity.ok().build();
 	}
 }

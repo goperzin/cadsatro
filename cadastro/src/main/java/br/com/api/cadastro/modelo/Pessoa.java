@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Pessoa implements Serializable {
 	
@@ -23,7 +26,15 @@ public class Pessoa implements Serializable {
 	private String telefone;
 	
 	private String email;
-
+	
+	private String cpf;
+	
+	private String apelido;
+	
+	private String cnpj;
+	
+	private String nomeFantasia;
+	
 	public Long getIdPessoa() {
 		return idPessoa;
 	}
@@ -31,7 +42,7 @@ public class Pessoa implements Serializable {
 	public void setIdPessoa(Long idPessoa) {
 		this.idPessoa = idPessoa;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -63,4 +74,37 @@ public class Pessoa implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getApelido() {
+		return apelido;
+	}
+
+	public void setApelido(String apelido) {
+		this.apelido = apelido;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+	
 }
