@@ -1,19 +1,7 @@
-package br.com.api.cadastro.modelo;
+package br.com.api.cadastro.dto;
 
-import java.io.Serializable;
+public class PessoaDTO {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Pessoa implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idPessoa;
 	
 	private String nome;

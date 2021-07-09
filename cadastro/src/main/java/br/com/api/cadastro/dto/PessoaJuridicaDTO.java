@@ -1,9 +1,7 @@
-package br.com.api.cadastro.modelo;
+package br.com.api.cadastro.dto;
 
-public class PessoaJuridica extends Pessoa {
+public class PessoaJuridicaDTO extends PessoaDTO {
 	
-	private static final long serialVersionUID = 1L;
-
 	private String cnpj;
 	
 	private String nomeFantasia;
