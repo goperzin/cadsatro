@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Cargo implements Serializable{
+public class Cargo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 

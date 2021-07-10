@@ -3,7 +3,6 @@ package br.com.api.cadastro.dto;
 public class CargoDTO {
 	
 	private Long idCargo;
-	
 	private String descricao;
 
 	public Long getIdCargo() {
