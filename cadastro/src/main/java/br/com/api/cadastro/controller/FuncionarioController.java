@@ -24,10 +24,11 @@ import br.com.api.cadastro.repository.FuncionarioRepository;
 
 @RestController
 @RequestMapping("funcionario")
+
 public class FuncionarioController {
 	
 	@Autowired
-	FuncionarioRepository pessoaRepository;
+	FuncionarioRepository funcionarioRepository;
 	
 	@PostMapping()
 	public ResponseEntity<Funcionario> cadastrar(@RequestBody FuncionarioDTO dto, UriComponentsBuilder uriBuilder) {
@@ -39,7 +40,7 @@ public class FuncionarioController {
 		funcionario.setEmail(dto.getEmail());
 		funcionario.setCargo(CargoEnum.getByCodigo(dto.getCargo()));
 		
-		Funcionario pessoaSalva = pessoaRepository.save(funcionario);
+		Funcionario pessoaSalva = funcionarioRepository.save(funcionario);
 		
 		URI uri = uriBuilder.path("/cadastrar/{idPessoa}").buildAndExpand(funcionario.getId()).toUri();
 		
@@ -48,18 +49,18 @@ public class FuncionarioController {
 	
 	@GetMapping()
 	public List<Funcionario> listarTodos() {
-		return pessoaRepository.findAll();
+		return funcionarioRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	public Funcionario listarPorId(@PathVariable Long id) {
-		return pessoaRepository.findById(id).get();
+		return funcionarioRepository.findById(id).get();
 	}
 	
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<Funcionario> alterar(@PathVariable Long id, @RequestBody FuncionarioDTO dto) {
-		Funcionario funcionario = pessoaRepository.findById(id).get();
+		Funcionario funcionario = funcionarioRepository.findById(id).get();
 		funcionario.setNome(dto.getNome());
 		funcionario.setCelular(dto.getCelular());
 		funcionario.setTelefoneFixo(dto.getTelefoneFixo());
@@ -71,7 +72,7 @@ public class FuncionarioController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Funcionario> remover(@PathVariable Long id) {
-		pessoaRepository.deleteById(id);
+		funcionarioRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
 }

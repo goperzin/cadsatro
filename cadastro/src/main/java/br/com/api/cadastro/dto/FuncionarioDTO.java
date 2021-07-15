@@ -1,7 +1,5 @@
 package br.com.api.cadastro.dto;
 
-import br.com.api.cadastro.enuns.CargoEnum;
-
 public class FuncionarioDTO {
 
 	private Long id;
