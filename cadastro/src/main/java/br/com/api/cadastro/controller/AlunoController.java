@@ -23,12 +23,11 @@ import br.com.api.cadastro.modelo.Aluno;
 import br.com.api.cadastro.repository.AlunoRepository;
 
 @RestController
-@RequestMapping ("Aluno")
-
+@RequestMapping ("aluno")
 public class AlunoController {
 	
 	@Autowired
-	AlunoRepository AlunoRepository;
+	AlunoRepository alunoRepository;
 	
 	@PostMapping()
 	public ResponseEntity<Aluno> cadastrar(@RequestBody AlunoDTO dto, UriComponentsBuilder uriBuilder) {
@@ -36,10 +35,8 @@ public class AlunoController {
 		
 		aluno.setNome(dto.getNome());
 		aluno.setEmail(dto.getEmail());
-		aluno.setContato(dto.getContato());
-		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));;		
-		
-		Aluno pessoaSalva = AlunoRepository.save(aluno);
+		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));
+		Aluno pessoaSalva = alunoRepository.save(aluno);
 		
 		URI uri = uriBuilder.path("/cadastrar/{idPessoa}").buildAndExpand(aluno.getId()).toUri();
 		
@@ -49,28 +46,28 @@ public class AlunoController {
 	
 	@GetMapping()
 	public List<Aluno> listarTodos() {
-		return AlunoRepository.findAll();
+		return alunoRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	public Aluno listarPorId(@PathVariable Long id) {
-		return AlunoRepository.findById(id).get();
+		return alunoRepository.findById(id).get();
 	}	
 	
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<Aluno> alterar(@PathVariable Long id, @RequestBody AlunoDTO dto) {
-		Aluno aluno = AlunoRepository.findById(id).get();
+		Aluno aluno = alunoRepository.findById(id).get();
 		aluno.setNome(dto.getNome());
 		aluno.setEmail(dto.getEmail());
-		aluno.setContato(dto.getContato());
-		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));;	
+		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));
 		
 		return ResponseEntity.ok(aluno);
 	}
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Aluno> remover(@PathVariable Long id) {
-		AlunoRepository.deleteById(id);
+		alunoRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
 }

@@ -1,5 +1,7 @@
 package br.com.api.cadastro.dto;
 
+import java.util.Date;
+
 public class AlunoDTO {
 	
 	private Long id;
@@ -14,16 +16,13 @@ public class AlunoDTO {
 	
 	private String turma;
 	
-	private String horario;
+	private Date horario;
 	
-	
-
-	
-	public String getHorario() {
+	public Date getHorario() {
 		return horario;
 	}
 
-	public void setHorario(String horario) {
+	public void setHorario(Date horario) {
 		this.horario = horario;
 	}
 
@@ -74,8 +73,4 @@ public class AlunoDTO {
 	public void setTurma(String turma) {
 		this.turma = turma;
 	}
-	
-	
-	
-	
 }
