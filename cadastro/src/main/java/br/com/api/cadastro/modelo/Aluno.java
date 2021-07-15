@@ -12,6 +12,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.api.cadastro.enuns.NivelEnum;
+import br.com.api.cadastro.enuns.TurmaEnum;
+import br.com.api.cadastro.enuns.TurmaEnum;
+import br.com.api.cadastro.enuns.TurmaEnum;
+import br.com.api.cadastro.enuns.TurmaEnum;
 
 @Entity
 public class Aluno {
@@ -26,16 +30,17 @@ public class Aluno {
 
 	private String celular;
 
-	private String telefonefixo;
+	private String telefoneFixo;
 	
-	private String turma;
+	@Enumerated(EnumType.STRING)
+	private TurmaEnum turma;
 
 	@Enumerated(EnumType.STRING)
 	private NivelEnum nivel;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date horarios;
-			
+
 	public Long getId() {
 		return id;
 	}
@@ -68,14 +73,22 @@ public class Aluno {
 		this.celular = celular;
 	}
 
-	public String getTelefonefixo() {
-		return telefonefixo;
+	public String getTelefoneFixo() {
+		return telefoneFixo;
 	}
 
-	public void setTelefonefixo(String telefonefixo) {
-		this.telefonefixo = telefonefixo;
+	public void setTelefoneFixo(String telefoneFixo) {
+		this.telefoneFixo = telefoneFixo;
 	}
-	
+
+	public TurmaEnum getTurma() {
+		return turma;
+	}
+
+	public void setTurma(TurmaEnum turma) {
+		this.turma = turma;
+	}
+
 	public NivelEnum getNivel() {
 		return nivel;
 	}
@@ -84,11 +97,11 @@ public class Aluno {
 		this.nivel = nivel;
 	}
 
-	public String getTurma() {
-		return turma;
+	public Date getHorarios() {
+		return horarios;
 	}
 
-	public void setTurma(String turma) {
-		this.turma = turma;
+	public void setHorarios(Date horarios) {
+		this.horarios = horarios;
 	}
 }

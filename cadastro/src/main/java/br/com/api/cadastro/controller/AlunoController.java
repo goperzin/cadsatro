@@ -1,6 +1,7 @@
 package br.com.api.cadastro.controller;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -19,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.api.cadastro.dto.AlunoDTO;
 import br.com.api.cadastro.enuns.NivelEnum;
+import br.com.api.cadastro.enuns.TurmaEnum;
 import br.com.api.cadastro.modelo.Aluno;
 import br.com.api.cadastro.repository.AlunoRepository;
 
@@ -36,9 +38,10 @@ public class AlunoController {
 		aluno.setNome(dto.getNome());
 		aluno.setEmail(dto.getEmail());
 		aluno.setCelular(dto.getCelular());
-		aluno.setTelefonefixo(dto.getTelefonefixo());
-		aluno.setTurma(dto.getTurma());
+		aluno.setTelefoneFixo(dto.getTelefoneFixo());
+		aluno.setTurma(TurmaEnum.getByCodigo(dto.getTurma()));
 		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));
+		aluno.setHorarios(new Date());
 		
 		Aluno pessoaSalva = alunoRepository.save(aluno);
 		

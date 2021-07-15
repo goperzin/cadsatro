@@ -12,21 +12,13 @@ public class AlunoDTO {
 	
 	private String celular;
 	
-	private String telefonefixo;
+	private String telefoneFixo;
 	
 	private String nivel;
 	
 	private String turma;
 	
 	private Date horario;
-	
-	public Date getHorario() {
-		return horario;
-	}
-
-	public void setHorario(Date horario) {
-		this.horario = horario;
-	}
 
 	public Long getId() {
 		return id;
@@ -59,7 +51,15 @@ public class AlunoDTO {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-		
+
+	public String getTelefoneFixo() {
+		return telefoneFixo;
+	}
+
+	public void setTelefoneFixo(String telefoneFixo) {
+		this.telefoneFixo = telefoneFixo;
+	}
+
 	public String getNivel() {
 		return nivel;
 	}
@@ -76,11 +76,11 @@ public class AlunoDTO {
 		this.turma = turma;
 	}
 
-	public String getTelefonefixo() {
-		return telefonefixo;
+	public Date getHorario() {
+		return horario;
 	}
 
-	public void setTelefonefixo(String telefonefixo) {
-		this.telefonefixo = telefonefixo;
+	public void setHorario(Date horario) {
+		this.horario = horario;
 	}
 }
