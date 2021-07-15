@@ -27,13 +27,15 @@ public class Aluno {
 	private String celular;
 
 	private String telefonefixo;
+	
+	private String turma;
 
 	@Enumerated(EnumType.STRING)
 	private NivelEnum nivel;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date horarios;
-
+			
 	public Long getId() {
 		return id;
 	}
@@ -73,12 +75,20 @@ public class Aluno {
 	public void setTelefonefixo(String telefonefixo) {
 		this.telefonefixo = telefonefixo;
 	}
-
+	
 	public NivelEnum getNivel() {
 		return nivel;
 	}
 
 	public void setNivel(NivelEnum nivel) {
 		this.nivel = nivel;
+	}
+
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
 	}
 }

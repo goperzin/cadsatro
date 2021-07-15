@@ -36,6 +36,8 @@ public class AlunoController {
 		aluno.setNome(dto.getNome());
 		aluno.setEmail(dto.getEmail());
 		aluno.setCelular(dto.getCelular());
+		aluno.setTelefonefixo(dto.getTelefonefixo());
+		aluno.setTurma(dto.getTurma());
 		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));
 		
 		Aluno pessoaSalva = alunoRepository.save(aluno);

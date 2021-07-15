@@ -12,6 +12,8 @@ public class AlunoDTO {
 	
 	private String celular;
 	
+	private String telefonefixo;
+	
 	private String nivel;
 	
 	private String turma;
@@ -57,7 +59,7 @@ public class AlunoDTO {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-
+		
 	public String getNivel() {
 		return nivel;
 	}
@@ -72,5 +74,13 @@ public class AlunoDTO {
 
 	public void setTurma(String turma) {
 		this.turma = turma;
+	}
+
+	public String getTelefonefixo() {
+		return telefonefixo;
+	}
+
+	public void setTelefonefixo(String telefonefixo) {
+		this.telefonefixo = telefonefixo;
 	}
 }
