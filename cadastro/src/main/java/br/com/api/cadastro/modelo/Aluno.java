@@ -13,9 +13,6 @@ import javax.persistence.TemporalType;
 
 import br.com.api.cadastro.enuns.NivelEnum;
 import br.com.api.cadastro.enuns.TurmaEnum;
-import br.com.api.cadastro.enuns.TurmaEnum;
-import br.com.api.cadastro.enuns.TurmaEnum;
-import br.com.api.cadastro.enuns.TurmaEnum;
 
 @Entity
 public class Aluno {

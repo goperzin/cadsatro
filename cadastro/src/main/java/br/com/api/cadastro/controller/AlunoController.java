@@ -57,17 +57,37 @@ public class AlunoController {
 	}
 	
 	@GetMapping("/{id}")
-	public Aluno listarPorId(@PathVariable Long id) {
-		return alunoRepository.findById(id).get();
+	public AlunoDTO listarPorId(@PathVariable Long id) {
+		Aluno aluno = new Aluno();
+		aluno = alunoRepository.findById(id).get();
+		
+		AlunoDTO alunoDTO = new AlunoDTO();
+		
+		alunoDTO.setId(aluno.getId());
+		alunoDTO.setNome(aluno.getNome());
+		alunoDTO.setEmail(aluno.getEmail());
+		alunoDTO.setCelular(aluno.getCelular());
+		alunoDTO.setTelefoneFixo(aluno.getTelefoneFixo());
+		alunoDTO.setTurma(aluno.getTurma().getLabel());
+		alunoDTO.setNivel(aluno.getNivel().getLabel());
+		alunoDTO.setHorario(new Date());
+		
+		
+		return alunoDTO;
 	}	
 	
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<Aluno> alterar(@PathVariable Long id, @RequestBody AlunoDTO dto) {
 		Aluno aluno = alunoRepository.findById(id).get();
+		aluno.setId(dto.getId());
 		aluno.setNome(dto.getNome());
 		aluno.setEmail(dto.getEmail());
+		aluno.setCelular(dto.getCelular());
+		aluno.setTelefoneFixo(dto.getTelefoneFixo());
+		aluno.setTurma(TurmaEnum.getByCodigo(dto.getTurma()));
 		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));
+		aluno.setHorarios(new Date());
 		
 		return ResponseEntity.ok(aluno);
 	}
