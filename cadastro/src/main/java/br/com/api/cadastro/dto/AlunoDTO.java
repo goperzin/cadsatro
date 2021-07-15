@@ -10,7 +10,7 @@ public class AlunoDTO {
 	
 	private String email;
 	
-	private String contato;
+	private String celular;
 	
 	private String nivel;
 	
@@ -50,12 +50,12 @@ public class AlunoDTO {
 		this.email = email;
 	}
 
-	public String getContato() {
-		return contato;
+	public String getCelular() {
+		return celular;
 	}
 
-	public void setContato(String contato) {
-		this.contato = contato;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 	public String getNivel() {

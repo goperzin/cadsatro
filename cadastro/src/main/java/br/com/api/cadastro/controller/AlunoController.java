@@ -35,7 +35,9 @@ public class AlunoController {
 		
 		aluno.setNome(dto.getNome());
 		aluno.setEmail(dto.getEmail());
+		aluno.setCelular(dto.getCelular());
 		aluno.setNivel(NivelEnum.getByCodigo(dto.getNivel()));
+		
 		Aluno pessoaSalva = alunoRepository.save(aluno);
 		
 		URI uri = uriBuilder.path("/cadastrar/{idPessoa}").buildAndExpand(aluno.getId()).toUri();
